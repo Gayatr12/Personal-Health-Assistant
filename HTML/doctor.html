@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>DOCTOR LOCATION</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Bootsrap -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+        <!-- PrettyPhoto -->
+        <link rel="stylesheet" href="assets/css/prettyPhoto.css">
+
+        <!-- Template main Css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!-- Modernizr -->
+        <script src="assets/js/modernizr-2.6.2.min.js"></script>
+        <style>
+        #map {
+        height: 60%;
+        width: 60%;
+        padding-top: 30%;
+        border-top: 30%;
+        border-color: #0000;
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .size{
+        padding-right: 50px;
+        padding-left: 10px;
+        height: 100%;
+        padding-top: 20px;
+
+      }
+    </style>
+
+    </head>
+    <body>
+    <!-- NAVBAR
+    ================================================== -->
+
+    
+    <header class="main-header">
+        
+    
+        <nav class="navbar navbar-static-top">
+
+            <div class="navbar-top">
+
+              <div class="container">
+                  <div class="row">
+
+                   
+
+                    
+
+                  </div>
+              </div>
+
+            </div>
+
+                  
+
+
+                  
+            <div class="navbar-main">
+              
+              <div class="container">
+
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                  </button>
+                  
+                  <a class="navbar-brand" href="index.html"><p><img src="assets/images/logo.png" alt="" align="middle""> HELP LINE</p></a>
+                  
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse pull-right">
+
+                  <ul class="nav navbar-nav">
+
+                    <li><a class="" href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li class="has-child"><a href="#">HOW IT WORKS</a>
+
+                     
+                    </li>
+                    <li><a class="is-active" href="doctor.html">FIND DOCTORS</a></li>
+                    <li><a href="price.php">PRICE COMPARATOR</a></li>
+
+                  </ul>
+
+                </div> <!-- /#navbar -->
+
+              </div> <!-- /.container -->
+              
+            </div> <!-- /.navbar-main -->
+
+
+        </nav> 
+<div style="background-image: url('assets/images/1.jpg')" class="text-center" >
+	
+        
+
+		<div class="container zoomIn animated">
+			
+			<h1 class="page-title">Find Doctor<span class="title-under"></span></h1>
+			<p class="page-description">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit Necessitatibus.
+			</p>
+			
+		</div>
+    </div>
+    <div class="size">
+    <div id="map"></div>
+  </div>
+  <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 20
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <?php /* === MAP DATA === */ ?>
+        <?php
+        $locations = array();
+
+        /* Marker #1 */
+        $locations[] = array(
+          'google_map' => array(
+            'lat' => '-6.976622',
+            'lng' => '110.39068959999997',
+          ),
+          'location_address' => 'Puri Anjasmoro B1/22 Semarang',
+          'location_name'    => 'Loc A',
+        );
+
+        /* Marker #2 */
+        $locations[] = array(
+          'google_map' => array(
+            'lat' => '-6.974426',
+            'lng' => '110.38498099999993',
+          ),
+          'location_address' => 'Puri Anjasmoro P5/20 Semarang',
+          'location_name'    => 'Loc B',
+        );
+
+        /* Marker #3 */
+        $locations[] = array(
+          'google_map' => array(
+            'lat' => '-7.002475',
+            'lng' => '110.30163800000003',
+          ),
+          'location_address' => 'Ngaliyan Semarang',
+          'location_name'    => 'Loc C',
+        );
+        ?>
+
+
+        <?php /* === PRINT THE JAVASCRIPT === */ ?>
+
+        <?php
+        /* Set Default Map Area Using First Location */
+        $map_area_lat = isset( $locations[0]['google_map']['lat'] ) ? $locations[0]['google_map']['lat'] : '';
+        $map_area_lng = isset( $locations[0]['google_map']['lng'] ) ? $locations[0]['google_map']['lng'] : '';
+        ?>
+
+        <script>
+        jQuery( document ).ready( function($) {
+
+          /* Do not drag on mobile. */
+          var is_touch_device = 'ontouchstart' in document.documentElement;
+
+          var map = new GMaps({
+            el: '#google-map',
+            lat: '<?php echo $map_area_lat; ?>',
+            lng: '<?php echo $map_area_lng; ?>',
+            scrollwheel: false,
+            draggable: ! is_touch_device
+          });
+
+          /* Map Bound */
+          var bounds = [];
+
+          <?php /* For Each Location Create a Marker. */
+          foreach( $locations as $location ){
+            $name = $location['location_name'];
+            $addr = $location['location_address'];
+            $map_lat = $location['google_map']['lat'];
+            $map_lng = $location['google_map']['lng'];
+            ?>
+            /* Set Bound Marker */
+            var latlng = new google.maps.LatLng(<?php echo $map_lat; ?>, <?php echo $map_lng; ?>);
+            bounds.push(latlng);
+            /* Add Marker */
+            map.addMarker({
+              lat: <?php echo $map_lat; ?>,
+              lng: <?php echo $map_lng; ?>,
+              title: '<?php echo $name; ?>',
+              infoWindow: {
+                content: '<p><?php echo $name; ?></p>'
+              }
+            });
+          <?php } //end foreach locations ?>
+
+          /* Fit All Marker to map */
+          map.fitLatLngBounds(bounds);
+
+          /* Make Map Responsive */
+          var $window = $(window);
+          function mapWidth() {
+            var size = $('.google-map-wrap').width();
+            $('.google-map').css({width: size + 'px', height: (size/2) + 'px'});
+          }
+          mapWidth();
+          $(window).resize(mapWidth);
+
+        });
+        </script>
+        
+        <div class="map-list">
+
+          <h3><span>View in Google Map</span></h3>
+
+          <ul class="google-map-list" itemscope itemprop="hasMap" itemtype="http://schema.org/Map">
+
+            <?php foreach( $locations as $location ){
+              $name = $location['location_name'];
+              $addr = $location['location_address'];
+              $map_lat = $location['google_map']['lat'];
+              $map_lng = $location['google_map']['lng'];
+              ?>
+              <li>
+                <a target="_blank" itemprop="url" href="<?php echo 'http://www.google.com/maps/place/' . $map_lat . ',' . $map_lng;?>"><?php echo $name; ?></a>
+                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><?php echo $addr; ?></span>
+              </li>
+            
+            <?php } //end foreach ?>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjBC78Pdm4IFsWhmis5M1h7VSGus2m8IU&callback=initMap">
+    </script>
+
+
+ 
+ 
+      
+
+    
+       
+        
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')</script>
+
+        <!-- Bootsrap javascript file -->
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!-- PrettyPhoto javascript file -->
+        <script src="assets/js/jquery.prettyPhoto.js"></script>
+
+        <!-- Template main javascript -->
+        <script src="assets/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+        
+    </body>
+</html>
