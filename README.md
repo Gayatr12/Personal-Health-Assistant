@@ -1,7 +1,7 @@
 # Personal-Health-Assistant
 
 
- 		Over the years the healthcare sector has seen significant advances in terms of
+Over the years the healthcare sector has seen significant advances in terms of
 diagnosis and prediction of various chronic diseases with machine learning. Since
 healthcare industry produces huge amount of varied data, which proves favorable for
 a machine learning model for predicting results with great accuracy and efficiency.
