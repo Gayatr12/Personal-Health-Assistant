@@ -1,7 +1,11 @@
 # Personal-Health-Assistant
 
 
+<<<<<<< HEAD
  		Over the years the healthcare sector has seen significant advances in terms of
+=======
+   Over the years the healthcare sector has seen significant advances in terms of
+>>>>>>> 4801d3617ddbf5d2a94a89235732cc9a57d93e92
 diagnosis and prediction of various chronic diseases with machine learning. Since
 healthcare industry produces huge amount of varied data, which proves favorable for
 a machine learning model for predicting results with great accuracy and efficiency.
@@ -14,8 +18,13 @@ application will use various machine learning algorithms that would take symptom
 the person as input and predict the probabilities of various diseases he or she is
 suffering with. The output of model would give the chances of all the diseases that he
 or she may suffer with. Thus, enabling a person to have a better insight of his
+<<<<<<< HEAD
 condition.<br/>
 		Depending on the severity of his/her disease, the model would suggest the necessity
+=======
+condition.
+   Depending on the severity of his/her disease, the model would suggest the necessity
+>>>>>>> 4801d3617ddbf5d2a94a89235732cc9a57d93e92
 for a doctor checkup. This would be made easier by showing the nearby physicians
 and hospitals around him using Geo Location Google map. Once the person has
 visited the doctor, with our web app, he can know the comparative prices of various
